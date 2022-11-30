@@ -1,10 +1,8 @@
 import React from 'react';
-import './App.css';
 import ResponsiveAppBar from './AppNav';
-import { Box, Button, ButtonBase, Card, Chip, Typography } from '@mui/material';
+import { Box, ButtonBase, Card, Chip, Typography } from '@mui/material';
 import Cover from './assets/cover.jpg'
 import GDSCNIULogo from './assets/gdscniu_border.svg'
-import { styled } from '@mui/system';
 
 function App() {
   return (
