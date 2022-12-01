@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import ButtonBase from '@mui/material/ButtonBase';
 import MenuItem from '@mui/material/MenuItem';
 import GDSCNIULogo from './assets/gdscniu.svg'
+import { Link } from '@mui/material';
 
 const pages = ['Events', 'Blog', 'About Us', 'Social'];
 
@@ -28,10 +29,23 @@ function ResponsiveAppBar() {
         <AppBar component="nav" color='inherit'>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                        <img src={GDSCNIULogo} alt="" width={300} />
+                    <Link href='https://gdscniu.me/'>
+                        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                            <img src={GDSCNIULogo} alt="GDSC NIU Logo" width={300} />
+                        </Box>
+                    </Link>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'end' }}>
+                        {pages.map((page) => (
+                            <ButtonBase
+                                key={page}
+                                onClick={handleCloseNavMenu}
+                                sx={{ color: 'black', display: 'block', height: 70, width: 100, fontSize: 16, fontFamily: 'Open Sans' }}
+                            >
+                                {page}
+                            </ButtonBase>
+                        ))}
                     </Box>
+                    {/* 以上Desktop介面 */}
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         {/* Menu鈕 */}
@@ -71,20 +85,13 @@ function ResponsiveAppBar() {
                             ))}
                         </Menu>
                     </Box>
-                    <Box sx={{ flexGrow: 2, display: { xs: 'flex', md: 'none' } }}>
-                        <img src={GDSCNIULogo} alt="" height={70} />
-                    </Box>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'end' }}>
-                        {pages.map((page) => (
-                            <ButtonBase
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ color: 'black', display: 'block', height: 70, width: 100, fontSize:14, fontFamily:'Open Sans'}}
-                            >
-                                {page}
-                            </ButtonBase>
-                        ))}
-                    </Box>
+                    <Link href='https://gdscniu.me/'>
+                        <Box sx={{ flexGrow: 2, display: { xs: 'flex', md: 'none' } }}>
+                            <img src={GDSCNIULogo} alt="GDSC NIU Logo with border" height={70} />
+                        </Box>
+                    </Link>
+
+                    
                 </Toolbar>
             </Container>
         </AppBar>
